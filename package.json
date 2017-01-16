@@ -1,0 +1,27 @@
+{
+  "name": "politics",
+  "version": "0.1.0",
+  "description": "Heroku worker process that computes the votes for Festify.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Festify/politics.git"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "festify",
+    "voting",
+    "worker"
+  ],
+  "author": "Festify Dev Team <mail@festify.rocks>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Festify/politics/issues"
+  },
+  "homepage": "https://github.com/Festify/politics#readme",
+  "dependencies": {
+    "firebase-admin": "^4.0.4"
+  }
+}

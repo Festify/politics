@@ -1,2 +1,4 @@
-# politics
-Heroku worker process that performs the voting computation
+politics
+========
+
+The Heroku worker process that performs the voting computation.
