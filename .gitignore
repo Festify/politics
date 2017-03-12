@@ -38,4 +38,5 @@ jspm_packages
 
 # Environment files
 .env
-*firebase-adminsdk*.json
+
+.firebaserc
