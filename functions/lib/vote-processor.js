@@ -4,7 +4,7 @@ const utils = require('./utils');
 
 const VOTE_FACTOR = 1e12;
 
-exports.updateOrder = function (votesForTrack, trackId, currentTrack, partyId, currentParty) {
+exports.updateOrder = function (voteDelta, trackId, currentTrack, partyId, currentParty) {
     if (!partyId) {
         throw "Invalid party ID!";
     }
@@ -31,8 +31,6 @@ exports.updateOrder = function (votesForTrack, trackId, currentTrack, partyId, c
      * we multiply it by a very large factor (10^12 in this case) and subtract it.
      */
 
-    const voteCount = _.reduce(votesForTrack, (sum, hasVoted) => hasVoted ? sum + 1 : sum, 0);
-
     return firebase.database()
         .ref('/tracks')
         .child(partyId)
@@ -42,6 +40,8 @@ exports.updateOrder = function (votesForTrack, trackId, currentTrack, partyId, c
                 (currentTrack || {}).reference,
                 (track || {}).reference
             );
+
+            const voteCount = (!track ? 0 : track.vote_count) + voteDelta;
 
             if (!track && voteCount > 0) {
                 // Track does not exist, has just been voted for in via Add Tracks menu.
