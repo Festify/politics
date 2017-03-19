@@ -1,3 +1,5 @@
+# DEPRECATED! We inlined the functions into [Festify App](github.com/Festify/app)
+
 # politics
 
 A suite of Firebase functions necessary in order to safely and reliably perform track management for Festify.
